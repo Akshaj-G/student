@@ -6,6 +6,19 @@ show_reading_time: false
 ---
 
 <style>
+/* ===== Page-wide background ===== */
+body {
+  background-color: #0a0d12;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px),
+    radial-gradient(ellipse 900px 550px at 12% -5%, rgba(63,185,80,0.09), transparent 60%),
+    radial-gradient(ellipse 1000px 650px at 105% 20%, rgba(88,166,255,0.08), transparent 60%),
+    radial-gradient(ellipse 800px 550px at 50% 115%, rgba(57,197,207,0.07), transparent 60%);
+  background-size: 42px 42px, 42px 42px, auto, auto, auto;
+  background-attachment: fixed, fixed, fixed, fixed, fixed;
+}
+
 /* ===== Hero / Boot Sequence ===== */
 .boot-hero {
   position: relative;

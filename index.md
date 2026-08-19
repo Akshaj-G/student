@@ -19,6 +19,215 @@ body {
   background-attachment: fixed, fixed, fixed, fixed, fixed;
 }
 
+/* ===== 🦄 Unicorn Mascot (my unicorn feature) ===== */
+.uni-widget {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  width: 120px;
+  height: 140px;
+  z-index: 999;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.uni-hint {
+  position: absolute;
+  top: -4px;
+  right: 4px;
+  font-family: ui-monospace, monospace;
+  font-size: 11px;
+  color: #e6edf3;
+  background: #161b22;
+  border: 1px solid #30363d;
+  padding: 3px 8px;
+  border-radius: 999px;
+  white-space: nowrap;
+  animation: uni-hint-bob 1.8s ease-in-out infinite, uni-hint-fade 1s ease 6s forwards;
+  pointer-events: none;
+}
+@keyframes uni-hint-bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
+@keyframes uni-hint-fade { to { opacity: 0; visibility: hidden; } }
+
+.uni-character {
+  position: absolute;
+  bottom: 6px;
+  right: 20px;
+  width: 90px;
+  height: 100px;
+  animation: uni-float 3.2s ease-in-out infinite;
+}
+@keyframes uni-float {
+  0%, 100% { transform: translateY(0) rotate(-1deg); }
+  50% { transform: translateY(-9px) rotate(1.5deg); }
+}
+
+.uni-mane {
+  position: absolute;
+  border-radius: 60% 40% 55% 45% / 55% 45% 55% 45%;
+  opacity: 0.92;
+  transform-origin: 80% 20%;
+}
+.uni-mane.m1 { width: 34px; height: 30px; top: 14px; left: 6px; background: linear-gradient(135deg,#ff5f7e,#ffd166); animation: uni-sway 2.4s ease-in-out infinite; z-index: 1; }
+.uni-mane.m2 { width: 30px; height: 28px; top: 26px; left: 2px; background: linear-gradient(135deg,#ffd166,#06d6a0); animation: uni-sway 2.6s ease-in-out infinite 0.25s; z-index: 1; }
+.uni-mane.m3 { width: 26px; height: 24px; top: 40px; left: 4px; background: linear-gradient(135deg,#06d6a0,#4cc9f0); animation: uni-sway 2.2s ease-in-out infinite 0.5s; z-index: 1; }
+@keyframes uni-sway { 0%,100% { transform: rotate(-6deg); } 50% { transform: rotate(6deg); } }
+
+.uni-tail {
+  position: absolute;
+  width: 22px; height: 20px;
+  bottom: 10px; left: 2px;
+  border-radius: 50% 50% 60% 40%;
+  background: linear-gradient(135deg,#4cc9f0,#b28dff);
+  transform-origin: 70% 30%;
+  animation: uni-sway 2.1s ease-in-out infinite 0.15s;
+  z-index: 0;
+}
+
+.uni-body {
+  position: absolute;
+  width: 46px; height: 40px;
+  bottom: 6px; right: 12px;
+  border-radius: 55% 45% 50% 50% / 60% 60% 40% 40%;
+  background: #fdfcff;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.35);
+  z-index: 2;
+}
+.uni-neck {
+  position: absolute;
+  width: 26px; height: 40px;
+  bottom: 30px; right: 22px;
+  border-radius: 50% 50% 40% 40%;
+  background: #fdfcff;
+  transform: rotate(-10deg);
+  z-index: 2;
+}
+.uni-head {
+  position: absolute;
+  width: 40px; height: 34px;
+  top: 6px; right: 14px;
+  border-radius: 58% 42% 50% 50% / 55% 55% 45% 45%;
+  background: #fdfcff;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+  z-index: 3;
+}
+.uni-ear {
+  position: absolute;
+  top: -6px; right: 2px;
+  width: 0; height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 10px solid #fdfcff;
+  transform: rotate(18deg);
+  z-index: 3;
+}
+.uni-horn {
+  position: absolute;
+  top: -16px; right: 10px;
+  width: 0; height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 18px solid #ffd166;
+  filter: drop-shadow(0 0 4px rgba(255,209,102,0.85));
+  transform: rotate(12deg);
+  z-index: 4;
+  animation: uni-glow 2s ease-in-out infinite;
+}
+@keyframes uni-glow {
+  0%,100% { filter: drop-shadow(0 0 3px rgba(255,209,102,0.6)); }
+  50% { filter: drop-shadow(0 0 8px rgba(255,209,102,1)); }
+}
+.uni-eye {
+  position: absolute;
+  top: 14px; right: 10px;
+  width: 4px; height: 5px;
+  background: #1b1f27;
+  border-radius: 50%;
+  z-index: 4;
+}
+.uni-eye::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0.5px;
+  width: 1.4px; height: 1.4px;
+  background: #fff;
+  border-radius: 50%;
+}
+.uni-blush {
+  position: absolute;
+  top: 20px; right: 20px;
+  width: 6px; height: 4px;
+  background: #ff9eb5;
+  border-radius: 50%;
+  opacity: 0.7;
+  filter: blur(0.5px);
+  z-index: 4;
+}
+
+.uni-sparks { position: absolute; top: -20px; right: 6px; width: 30px; height: 30px; pointer-events: none; z-index: 5; }
+.uni-spark {
+  position: absolute;
+  font-size: 10px;
+  opacity: 0;
+  top: 10px; left: 12px;
+}
+.uni-widget:hover .uni-spark, .uni-widget.uni-active .uni-spark {
+  animation: uni-spark-fly 0.9s ease-out forwards;
+}
+.uni-spark:nth-child(1) { animation-delay: 0s; }
+.uni-spark:nth-child(2) { animation-delay: 0.12s; }
+.uni-spark:nth-child(3) { animation-delay: 0.24s; }
+.uni-spark:nth-child(4) { animation-delay: 0.36s; }
+@keyframes uni-spark-fly {
+  0% { opacity: 0; transform: translate(0,0) scale(0.4) rotate(0deg); }
+  30% { opacity: 1; }
+  100% { opacity: 0; transform: translate(var(--sx,10px), var(--sy,-24px)) scale(1) rotate(90deg); }
+}
+.uni-spark:nth-child(1) { --sx: -16px; --sy: -20px; }
+.uni-spark:nth-child(2) { --sx: 4px;  --sy: -26px; }
+.uni-spark:nth-child(3) { --sx: 18px; --sy: -14px; }
+.uni-spark:nth-child(4) { --sx: -6px; --sy: -30px; }
+
+.uni-bubble {
+  position: absolute;
+  bottom: 108px;
+  right: 0;
+  min-width: 140px;
+  max-width: 200px;
+  background: #161b22;
+  color: #e6edf3;
+  border: 1px solid #30363d;
+  border-radius: 10px;
+  padding: 8px 10px;
+  font-family: ui-monospace, monospace;
+  font-size: 11.5px;
+  line-height: 1.4;
+  opacity: 0;
+  transform: translateY(6px) scale(0.92);
+  transform-origin: bottom right;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+  pointer-events: none;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+.uni-bubble::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  right: 24px;
+  width: 12px; height: 12px;
+  background: #161b22;
+  border-right: 1px solid #30363d;
+  border-bottom: 1px solid #30363d;
+  transform: rotate(45deg);
+}
+.uni-bubble.uni-show { opacity: 1; transform: translateY(0) scale(1); }
+
+@media (prefers-reduced-motion: reduce) {
+  .uni-character, .uni-mane, .uni-tail, .uni-horn, .uni-hint { animation: none !important; }
+}
+@media (max-width: 480px) {
+  .uni-widget { width: 92px; height: 110px; transform: scale(0.85); transform-origin: bottom right; }
+}
+
 /* ===== Hero / Boot Sequence ===== */
 .boot-hero {
   position: relative;
@@ -224,6 +433,65 @@ body {
   if (el1) type1();
 })();
 </script>
+
+> 🦄 **This is my unicorn.** Nobody asked for a living mascot on a portfolio homepage — I built one anyway. Bottom-right corner, always with you. Click it.
+
+<div class="uni-widget" id="uniWidget" title="click me">
+  <span class="uni-hint">psst 👋</span>
+  <div class="uni-bubble" id="uniBubble"></div>
+  <div class="uni-character">
+    <div class="uni-tail"></div>
+    <div class="uni-mane m1"></div>
+    <div class="uni-mane m2"></div>
+    <div class="uni-mane m3"></div>
+    <div class="uni-body"></div>
+    <div class="uni-neck"></div>
+    <div class="uni-head">
+      <div class="uni-ear"></div>
+      <div class="uni-horn"></div>
+      <div class="uni-eye"></div>
+      <div class="uni-blush"></div>
+      <div class="uni-sparks">
+        <span class="uni-spark">✦</span>
+        <span class="uni-spark">✧</span>
+        <span class="uni-spark">✦</span>
+        <span class="uni-spark">✧</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var widget = document.getElementById('uniWidget');
+  var bubble = document.getElementById('uniBubble');
+  if (!widget || !bubble) return;
+  var lines = [
+    "console.log('magic');",
+    "I debug with sparkles ✨",
+    "404: ordinary portfolio not found",
+    "git commit -m 'added a unicorn, no regrets'",
+    "powered by caffeine and CSS",
+    "not all heroes wear capes, some wear horns",
+    "O(1) magic, O(n) homework",
+    "this.horn.glow = true;"
+  ];
+  var hideTimer = null;
+  widget.addEventListener('click', function(){
+    var msg = lines[Math.floor(Math.random() * lines.length)];
+    bubble.textContent = msg;
+    bubble.classList.add('uni-show');
+    widget.classList.add('uni-active');
+    clearTimeout(hideTimer);
+    hideTimer = setTimeout(function(){
+      bubble.classList.remove('uni-show');
+      widget.classList.remove('uni-active');
+    }, 3200);
+  });
+})();
+</script>
+
+<br>
 
 ### Development Environment
 
